@@ -166,10 +166,26 @@ a {
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-.text-link span,.button-link span {
+.arrow-mark {
+  position: relative;
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
   transition: transform .6s var(--ease);
 }
-.text-link:hover span,.button-link:hover span {
+.arrow-mark::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -0.12rem;
+  width: 0.82rem;
+  border-top: 1px solid currentColor;
+  transform: rotate(-45deg);
+  transform-origin: right center;
+}
+.text-link:hover .arrow-mark,.button-link:hover .arrow-mark {
   transform: translate(3px,-3px);
 }
 .hero-art {
@@ -252,10 +268,22 @@ a {
   white-space: nowrap;
   padding-right: 1.1rem;
 }
-.marquee b {
-  font: 0.75rem var(--sans);
-  color: #e99a79;
-  padding: 0 1.5rem;
+.marquee-mark {
+  position: relative;
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin: 0 1.5rem;
+  vertical-align: 0.05rem;
+  border: 1px solid #e99a79;
+  border-radius: 50%;
+}
+.marquee-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0.12rem;
+  border-radius: 50%;
+  background: #e99a79;
 }
 @keyframes marquee {
   to {
@@ -406,8 +434,14 @@ a {
   inset: 0;
   display: grid;
   place-items: center;
-  color: #e6a288;
-  font-size: 6.5625rem;
+}
+.orbit-mark {
+  display: block;
+  width: 6.5625rem;
+  height: 6.5625rem;
+  border: 1px solid #e6a288;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e6a288 0 8%, transparent 9% 44%, #e6a288 45% 46%, transparent 47%);
 }
 .big-arch {
   position: absolute;
