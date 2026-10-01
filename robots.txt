@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Sitemap: renseigner l’URL définitive du sitemap après publication.

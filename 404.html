@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f2eee4">
+    <title>Page introuvable — Daila Boutique</title>
+    <script>
+      document.documentElement.classList.add('js')
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%2363384b'/%3E%3Ctext x='15' y='43' fill='%23f2eee4' font-size='38' font-family='Georgia'%3ED%3C/text%3E%3C/svg%3E">
+    <style>
+      /* Palette and typography */ :root {
+        color-scheme: light;
+        --paper: #f2eee4;
+        --ink: #302329;
+        --plum: #63384b;
+        --vermilion: #b4432c;
+        --serif: Georgia,'Times New Roman',serif;
+        --sans: system-ui,sans-serif;
+      }
+      /* Base and accessible defaults */ * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--paper);
+        color: var(--ink);
+        font: 100%/1.5 var(--sans);
+        display: grid;
+        place-items: center;
+        padding: 8vw;
+      }
+      main {
+        width: min(100%,900px);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .mark {
+        font: 600 1.6rem var(--serif);
+        letter-spacing: -.08em;
+      }
+      .eyebrow {
+        margin: 22vh 0 1rem;
+        font-size: .75rem;
+        letter-spacing: .17em;
+        text-transform: uppercase;
+      }
+      .title {
+        font: 500 clamp(4rem,11vw,9rem)/.98 var(--serif);
+        letter-spacing: -.06em;
+        color: var(--plum);
+        margin: 0 0 2rem;
+      }
+      .title em {
+        color: var(--vermilion);
+        font-weight: 500;
+      }
+      .link {
+        display: inline-flex;
+        gap: 1rem;
+        border-bottom: 1px solid currentColor;
+        padding-bottom: .5rem;
+        font-size: .875rem;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      a:focus-visible {
+        outline: 2px solid var(--vermilion);
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="mark" href="./" id="home-link">Daila</a>
+      <p class="eyebrow">
+         Bruxelles
+      </p>
+      <h1 class="title">
+         Cette page<br><em>s’est éclipsée.</em>
+      </h1>
+      <a class="link" href="./" id="return-link">Revenir chez Daila <span aria-hidden="true">↗</span></a>
+    </main>
+    <script>
+      const segments = window.location.pathname.split('/').filter(Boolean);
+      const isProjectPages = window.location.hostname.endsWith('.github.io') && segments.length > 0;
+      const root = isProjectPages ? `/${segments[0]}/` : '/';
+      document.querySelectorAll('#home-link, #return-link').forEach(link => { link.href = root; });
+    </script>
+  </body>
+</html>
